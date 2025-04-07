@@ -6,6 +6,9 @@
     "outDir": "./dist/out-tsc",
     "strict": true,
     "baseUrl": ".",
+    "paths": {
+      "@shared/*": ["src/app/shared/*"]
+    },
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,

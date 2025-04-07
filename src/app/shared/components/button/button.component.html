@@ -1,0 +1,45 @@
+@if (href() === undefined) {
+  <button
+    (click)="onClick()()"
+    class="relative p-0.5 g5 rounded-2xl shadow-500 group"
+    [class]="classes()">
+    <span
+      class="relative flex items-center min-h-[60px] px-4 g4 rounded-2xl inner-before group-hover:before:opacity-100 overflow-hidden">
+      <span class="absolute -left-[1px]"
+        ><app-marker [fill]="markerFill()"
+      /></span>
+      @if (icon() !== undefined) {
+        <img
+          [src]="icon()"
+          alt="circle"
+          class="size-10 mr-5 object-contain z-10" />
+      }
+      <span class="relative z-2 font-poppins base-bold text-p1 uppercase"
+        ><ng-content select="[button]"
+      /></span>
+    </span>
+    <span class="glow-before glow-after"></span>
+  </button>
+} @else {
+  <a
+    [href]="href()"
+    class="relative p-0.5 g5 rounded-2xl shadow-500 group"
+    [class]="classes()">
+    <span
+      class="relative flex items-center min-h-[60px] px-4 g4 rounded-2xl inner-before group-hover:before:opacity-100 overflow-hidden">
+      <span class="absolute -left-[1px]"
+        ><app-marker [fill]="markerFill()"
+      /></span>
+      @if (icon() !== undefined) {
+        <img
+          [src]="icon()"
+          alt="circle"
+          class="size-10 mr-5 object-contain z-10" />
+      }
+      <span class="relative z-2 font-poppins base-bold text-p1 uppercase"
+        ><ng-content select="[anchor]"
+      /></span>
+    </span>
+    <span class="glow-before glow-after"></span>
+  </a>
+}
