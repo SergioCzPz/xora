@@ -1,4 +1,6 @@
-<header class="fixed top-0 left-0 z-50 w-full py-10">
+<header
+  class="fixed top-0 left-0 z-50 w-full py-10 transition-all duration-500 max-lg:py-4"
+  [ngClass]="{ 'py-2 bg-black-100 backdrop-blur-[8px]': hasScrolled() }">
   <div class="container flex h-14 items-center max-lg:px-5">
     <a class="lg:hidden flex-1 cursor-pointer z-2"
       ><img src="assets/images/xora.svg" alt="xora" width="115" height="55"
@@ -13,12 +15,18 @@
           <ul class="flex max-lg:block max-lg:px-12">
             <li class="nav-li">
               <a
+                (click)="closeMenu()"
+                [class.nav-active]="hashActiveLink() === '#features'"
+                #link
                 class="base-bold text-p4 uppercase transition-colors duration-500 cursor-pointer hover:text-p1 max-lg:my-4 max-lg:h-5"
                 href="#features"
                 >Features</a
               >
               <div class="dot"></div>
               <a
+                (click)="closeMenu()"
+                [class.nav-active]="hashActiveLink() === '#pricing'"
+                #link
                 class="base-bold text-p4 uppercase transition-colors duration-500 cursor-pointer hover:text-p1 max-lg:my-4 max-lg:h-5"
                 href="#pricing"
                 >Pricing</a
@@ -28,7 +36,7 @@
             <li class="nav-logo">
               <a
                 class="max-lg:hidden transition-transform duration-500 cursor-pointer"
-                href="#">
+                href="#hero">
                 <img
                   src="assets/images/xora.svg"
                   alt="xora"
@@ -39,14 +47,20 @@
 
             <li class="nav-li">
               <a
+                (click)="closeMenu()"
+                [class.nav-active]="hashActiveLink() === '#faq'"
+                #link
                 class="base-bold text-p4 uppercase transition-colors duration-500 cursor-pointer hover:text-p1 max-lg:my-4 max-lg:h-5"
-                href="#"
+                href="#faq"
                 >FAQ</a
               >
               <div class="dot"></div>
               <a
+                (click)="closeMenu()"
+                [class.nav-active]="hashActiveLink() === '#download'"
+                #link
                 class="base-bold text-p4 uppercase transition-colors duration-500 cursor-pointer hover:text-p1 max-lg:my-4 max-lg:h-5"
-                href="#"
+                href="#download"
                 >Download</a
               >
             </li>
