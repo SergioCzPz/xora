@@ -1,0 +1,142 @@
+<section id="pricing">
+  <div class="container">
+    <div
+      class="max-w-960 pricing-header_before relative mx-auto border-l border-r border-s2 bg-s1/50 pb-40 pt-28 max-xl:max-w-4xl max-lg:border-none max-md:pb-32 max-md:pt-16">
+      <h3
+        class="h3 max-lg:h4 max-md:h5 z-3 relative mx-auto mb-14 max-w-lg text-center text-p4 max-md:mb-11 max-sm:max-w-sm">
+        Flexible pricing for teams of all sizes
+      </h3>
+
+      <div
+        class="relative z-4 mx-auto flex w-[375px] rounded-3xl border-[3px] border-s4/25 bg-s1/50 p-2 backdrop-blur-[6px] max-md:w-[310px]">
+        <button
+          (click)="toggleMonthly(true)"
+          class="pricing-head_btn"
+          [style]="
+            isMonthly()
+              ? '--tw-text-opacity: 1; color: rgb(234 237 255 / var(--tw-text-opacity, 1));'
+              : ''
+          ">
+          Monthly
+        </button>
+        <button
+          (click)="toggleMonthly(false)"
+          class="pricing-head_btn"
+          [style]="
+            !isMonthly()
+              ? '--tw-text-opacity: 1; color: rgb(234 237 255 / var(--tw-text-opacity, 1));'
+              : ''
+          ">
+          Annual
+        </button>
+
+        <div
+          class="g4 rounded-14 before:h-100 pricing-head_btn_before absolute left-2 top-2 h-[calc(100%-16px)] w-[calc(50%-8px)] overflow-hidden shadow-400 transition-transform duration-500"
+          [class.translate-x-full]="!isMonthly()"></div>
+      </div>
+      <div class="pricing-bg">
+        <img
+          src="assets/images/bg-outlines.svg"
+          alt="outline"
+          width="960"
+          height="380"
+          class="relative z-2" />
+        <img
+          src="assets/images/bg-outlines-fill.png"
+          alt="outline"
+          width="960"
+          height="380"
+          class="absolute inset-0 opacity-5 mix-blend-soft-light" />
+      </div>
+    </div>
+
+    <!-- pricing -->
+    <div
+      class="scroll-hide relative z-2 -mt-12 flex items-start max-xl:gap-5 max-xl:overflow-auto max-xl:pt-6">
+      @for (plan of plans; track $index) {
+        <div
+          class="pricing-plan_first pricing-plan_last pricing-plan_odd pricing-plan_even relative border-2 p-7 max-lg:min-w-80 max-lg:rounded-3xl xl:w-[calc(33.33%+2px)]">
+          @if ($index === 1) {
+            <div
+              class="g4 absolute h-330 left-0 right-0 top-0 z-1 rounded-tl-3xl rounded-tr-3xl"></div>
+          }
+          <div
+            class="absolute left-0 right-0 z-2 flex items-center justify-center -top-6 xl:-top-11">
+            <img
+              [src]="plan.logo"
+              [alt]="plan.title"
+              class="object-contain drop-shadow-2xl"
+              [class]="{
+                'size-[120px]': $index === 1,
+                'size-[88px]': $index !== 1,
+              }" />
+          </div>
+
+          <div
+            class="relative flex flex-col items-center"
+            [class]="{
+              'pt-24': $index === 1,
+              'pt-12': $index !== 1,
+            }">
+            <div
+              class="small-2 rounded-20 relative z-2 mx-auto mb-6 border-2 px-4 py-1.5 uppercase"
+              [class]="{
+                'border-p3': $index === 1,
+                'text-p3': $index === 1,
+                'border-p1': $index !== 1,
+                'text-p1': $index !== 1,
+              }">
+              {{ plan.title }}
+            </div>
+
+            <div class="relative z-2 flex items-center justify-center">
+              <div
+                class="h-num flex items-start"
+                [class]="{
+                  'text-p3': $index === 1,
+                  'text-p4': $index !== 1,
+                }">
+                @if (isMonthly()) {
+                  <ng-container>${{ plan.priceMonthly }}</ng-container>
+                } @else {
+                  <ng-container>${{ plan.priceYearly }}</ng-container>
+                }
+              </div>
+              <div class="small-1 relative top-3 ml-1 uppercase">/ mo</div>
+            </div>
+          </div>
+          <div
+            class="body-1 relative z-2 mb-10 w-full border-b-s2 pb-9 text-center text-p4"
+            [class]="{ 'border-b': $index === 1 }">
+            {{ plan.caption }}
+          </div>
+
+          <ul class="mx-auto space-y-4 xl:px-7">
+            @for (feature of plan.features; track $index) {
+              <li class="relative flex items-center gap-5">
+                <img
+                  src="assets/images/check.png"
+                  alt="check"
+                  class="size-10 object-contain" />
+                <p class="flex-1">{{ feature }}</p>
+              </li>
+            }
+          </ul>
+
+          <div class="mt-10 flex w-full justify-center">
+            <app-button [icon]="plan.icon"
+              ><ng-container button>Get Started</ng-container></app-button
+            >
+          </div>
+
+          @if ($index === 1) {
+            <p
+              class="small-compact mt-9 text-center text-p3 before:mx-2.5 before:content-['-'] after:mx-2.5 after:content-['-']">
+              Limited time offer
+            </p>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>
