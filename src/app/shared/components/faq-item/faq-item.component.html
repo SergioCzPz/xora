@@ -1,0 +1,37 @@
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+<div class="relative z-2 mb-16">
+  <div
+    class="group relative flex cursor-pointer items-center justify-between gap-10 px-7"
+    (click)="setActiveId()">
+    <div class="flex-1">
+      <div class="small-compact mb-1.5 text-p3 max-lg:hidden">
+        @if (index() < 10) {
+          0{{ index() }}
+        } @else {
+          {{ index() }}
+        }
+      </div>
+      <div
+        class="h6 text-p4 transition-colors duration-500 max-md:flex max-md:min-h-20 max-md:items-center"
+        [class]="{ 'max-lg:text-p1': isFaqActive() }">
+        {{ faq().question }}
+      </div>
+    </div>
+
+    <div
+      class="faq-icon relative flex size-12 items-center justify-center rounded-full border-2 border-s2 shadow-400 transition-all duration-500 group-hover:border-s4"
+      [ngClass]="{ 'before:bg-p1 after:rotate-0 after:bg-p1': isFaqActive() }">
+      <div class="g4 size-11/12 rounded-full shadow-300"></div>
+    </div>
+  </div>
+
+  <!-- Slide down -->
+  <app-slide-down [answer]="faq().answer" [slideDown]="isFaqActive()" />
+  <div
+    class="g5 -bottom-7 -top-7 left-0 right-0 -z-1 rounded-3xl opacity-0 transition-opacity duration-500 absolute"
+    [class]="{ 'opacity-100': isFaqActive() }">
+    <div class="g4 absolute inset-0.5 -z-1 rounded-3xl"></div>
+    <div class="absolute left-8 top-0 h-0.5 w-40 bg-p1"></div>
+  </div>
+</div>

@@ -4,6 +4,7 @@ import { HeroComponent } from '../../components/hero/hero.component';
 import { FeaturesComponent } from '../../components/features/features.component';
 import { ObserverDirective } from '../../directives/observer.directive';
 import { PricingComponent } from '../../components/pricing/pricing.component';
+import { FaqComponent } from '../../components/faq/faq.component';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +14,7 @@ import { PricingComponent } from '../../components/pricing/pricing.component';
     FeaturesComponent,
     ObserverDirective,
     PricingComponent,
+    FaqComponent,
   ],
   templateUrl: './home.component.html',
   styles: `
