@@ -5,6 +5,7 @@ import { FeaturesComponent } from '../../components/features/features.component'
 import { ObserverDirective } from '../../directives/observer.directive';
 import { PricingComponent } from '../../components/pricing/pricing.component';
 import { FaqComponent } from '../../components/faq/faq.component';
+import { TestimonialsComponent } from '../../components/testimonials/testimonials.component';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +16,7 @@ import { FaqComponent } from '../../components/faq/faq.component';
     ObserverDirective,
     PricingComponent,
     FaqComponent,
+    TestimonialsComponent,
   ],
   templateUrl: './home.component.html',
   styles: `

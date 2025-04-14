@@ -1,0 +1,63 @@
+<section class="relative z-2 py-24 md:py-28 lg:py-40">
+  <div class="container block lg:flex">
+    <div class="testimonials_head-res relative z-2 mr-20 flex-300">
+      <p class="caption mb-5 max-md:mb-2.5">Wall of love</p>
+      <h3 class="h3 max-md:h5 text-p4">Words from our fans</h3>
+    </div>
+
+    <div
+      class="testimonials_inner-after testimonials_inner-before relative -my-12 -mr-3 flex items-start max-lg:static max-md:block">
+      <div class="testimonials_group-after flex-50">
+        @for (testimonial of testimonials.slice(0, halfLength); track $index) {
+          <div
+            class="relative pr-14 pl-[4.5rem] pb-14 pt-11 after:absolute after:bottom-0 after:right-0 after:h-0.5 after:w-screen after:bg-s2 after:content-[''] max-md:px-0 max-md:pt-11 after:max-md:-right-4 last:after:hidden last:after:max-md:block">
+            <blockquote class="h6 mb-8 text-p4">
+              {{ testimonial.comment }}
+            </blockquote>
+            <div class="flex items-center max-lg:-mr-8">
+              <div
+                class="mr-4 size-20 shrink-0 rounded-half border-2 border-s2 p-1.5">
+                <img
+                  [src]="testimonial.avatarUrl"
+                  [alt]="testimonial.name"
+                  class="size-full object-cover" />
+              </div>
+              <div>
+                <h4 class="body-2 mb-0.5 text-p1">{{ testimonial.name }}</h4>
+                <p class="small-compact uppercase text-s3">
+                  {{ testimonial.role }}
+                </p>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="flex-50">
+        @for (testimonial of testimonials.slice(halfLength); track $index) {
+          <div
+            class="relative px-14 pb-14 pt-11 after:absolute after:bottom-0 after:h-0.5 after:w-screen after:bg-s2 after:content-[''] max-md:px-0 max-md:pt-11 after:max-md:-right-4 last:after:hidden after:right-auto after:left-0 after:max-md:-left-4 md:px-12">
+            <blockquote class="h6 mb-8 text-p4">
+              {{ testimonial.comment }}
+            </blockquote>
+            <div class="flex items-center max-lg:-mr-8">
+              <div
+                class="mr-4 size-20 shrink-0 rounded-half border-2 border-s2 p-1.5">
+                <img
+                  [src]="testimonial.avatarUrl"
+                  [alt]="testimonial.name"
+                  class="size-full object-cover" />
+              </div>
+              <div>
+                <h4 class="body-2 mb-0.5 text-p1">{{ testimonial.name }}</h4>
+                <p class="small-compact uppercase text-s3">
+                  {{ testimonial.role }}
+                </p>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
