@@ -6,6 +6,7 @@ import { ObserverDirective } from '../../directives/observer.directive';
 import { PricingComponent } from '../../components/pricing/pricing.component';
 import { FaqComponent } from '../../components/faq/faq.component';
 import { TestimonialsComponent } from '../../components/testimonials/testimonials.component';
+import { DownloadComponent } from '../../components/download/download.component';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +18,7 @@ import { TestimonialsComponent } from '../../components/testimonials/testimonial
     PricingComponent,
     FaqComponent,
     TestimonialsComponent,
+    DownloadComponent,
   ],
   templateUrl: './home.component.html',
   styles: `

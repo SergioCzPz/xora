@@ -54,7 +54,6 @@ export interface Logo {
 export interface Link {
   id: string;
   title: string;
-  icon: string;
   url: string;
 }
 

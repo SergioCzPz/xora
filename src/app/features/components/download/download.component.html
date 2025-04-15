@@ -1,0 +1,82 @@
+<section id="download">
+  <div class="g7 relative pb-32 pt-24 max-lg:pb-24 max-md:py-16">
+    <div class="container">
+      <div class="flex items-center">
+        <div
+          class="relative mr-6 flex-540 max-xl:flex-280 max-lg:flex256 max-md:flex-100">
+          <div class="mb-10">
+            <img
+              src="assets/images/xora.svg"
+              alt="logo"
+              width="160"
+              height="55" />
+          </div>
+          <p class="body-1 mb-10 max-w-md">
+            Try it now for free on iOS, Android, PC, Web - whatever flavour,
+            we've got you covered.
+          </p>
+
+          <ul class="flex flex-wrap items-center gap-6">
+            @for (link of links; track $index) {
+              <li
+                class="download_tech-link download_tech-link_last-before download_tech-link_last-after">
+                <a
+                  [href]="link.url"
+                  class="size-22 download_tech-icon_before relative flex items-center justify-center rounded-half border-2 border-s3 bg-s1 transition-borderColor duration-500">
+                  <span class="absolute -top-2 rotate-90">
+                    <app-marker [fill]="'#2EF2FF'" />
+                  </span>
+                  <img
+                    src="assets/images/lines.svg"
+                    alt="lines"
+                    class="absolute size-13/20 object-contain" />
+                  <span class="download_tech-icon">
+                    @if (link.title === 'Ios') {
+                      <app-ios />
+                    } @else if (link.title === 'Android') {
+                      <app-android />
+                    } @else if (link.title === 'Windows') {
+                      <app-windows />
+                    } @else {
+                      <app-web />
+                    }
+                  </span>
+                </a>
+              </li>
+            }
+          </ul>
+        </div>
+
+        <div class="mb-10 max-md:hidden">
+          <div
+            class="download_preview-before download_preview-after rounded-40 relative w-[955px] border-2 border-s5 p-6">
+            <div class="relative rounded-3xl bg-s1 px-6 pb-6 pt-14">
+              <span class="download_preview-dot left-6 bg-p2"></span>
+              <span class="download_preview-dot left-11 bg-s3"></span>
+              <span class="download_preview-dot left-16 bg-p1/15"></span>
+
+              <img
+                src="assets/images/screen.jpg"
+                alt="screen"
+                width="855"
+                height="655"
+                class="rounded-xl" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ul class="mt-24 flex justify-center max-lg:hidden">
+        @for (logo of logos; track $index) {
+          <li class="mx-10">
+            <img
+              [src]="logo.url"
+              [alt]="logo.title"
+              [width]="logo.width"
+              [height]="logo.height" />
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>
