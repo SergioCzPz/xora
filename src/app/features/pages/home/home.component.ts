@@ -7,6 +7,7 @@ import { PricingComponent } from '../../components/pricing/pricing.component';
 import { FaqComponent } from '../../components/faq/faq.component';
 import { TestimonialsComponent } from '../../components/testimonials/testimonials.component';
 import { DownloadComponent } from '../../components/download/download.component';
+import { FooterComponent } from '../../components/footer/footer.component';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +20,7 @@ import { DownloadComponent } from '../../components/download/download.component'
     FaqComponent,
     TestimonialsComponent,
     DownloadComponent,
+    FooterComponent,
   ],
   templateUrl: './home.component.html',
   styles: `
