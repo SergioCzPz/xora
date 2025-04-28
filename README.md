@@ -18,7 +18,8 @@
 ## About
 
 This is my implementation from [SaaS Website](https://www.youtube.com/watch?v=ukiGFmZ32YA). Originally created using React.
-This implementation uses [Angular](https://angular.dev) and [Tailwind](https://tailwindcss.com).
+This implementation uses [Angular](https://angular.dev) and [Tailwind](https://tailwindcss.com).  
+Visit [Sora Website](https://sorasaas.netlify.app)
 
 ---
 
